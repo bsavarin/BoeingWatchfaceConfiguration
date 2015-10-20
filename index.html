@@ -73,19 +73,13 @@
    function getConfigData() {
         var invertSelect = document.getElementById("invert_select");
 		var tempDisplay = document.getElementById("temp_display");
-		var bgcolourDisplay = document.getElementById("bgcolour_display");
-		var fgcolourDisplay = document.getElementById("fgcolour_display");
 		
 		var options = {
           "invert": invertSelect.checked ? "true":"false",
-		  "temperature": tempDisplay.value,
-		  "bgcolour": bgcolourDisplay.value,
-		  "fgcolour": fgcolourDisplay.value
+		  "temperature": tempDisplay.value
 		};
 			localStorage["invert"] = options.invert;
 			localStorage["temperature"] = options.temperature;
-			localStorage["bgcolour"] = options.bgcolour;
-			localStorage["fgcolour"] = options.fgcolour;
 
 		console.log('Got options: ' + JSON.stringify(options));	
         return options;
@@ -119,14 +113,10 @@
 	function loadOptions(){
 	    var invertSelect = document.getElementById("invert_select");
 		var tempDisplay = document.getElementById("temp_display");
-		var bgcolourDisplay = document.getElementById("bgcolour_display");
-		var fgcolourDisplay = document.getElementById("fgcolour_display");
 		
 		if(localStorage["invert"]) {
 			invertSelect.checked = localStorage["invert"] === "true";
 			tempDisplay.value = localStorage["temperature"];
-			bgcolourDisplay.value = localStorage["bgcolour"];
-			fgcolourDisplay.value = localStorage["fgcolour"];
 		}
 	}
 
